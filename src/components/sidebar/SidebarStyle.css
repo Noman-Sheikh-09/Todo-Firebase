@@ -1,8 +1,15 @@
+*{
+       padding: 0px;
+    margin: 0px;
+}
+
 .sidebar-wrapper{
     background-color: rgb(220, 213, 213);
-    width: 80%;
+    width: 90%;
     height: 100vh;
 }
-.list-wrapper{
 
+.sidebar-text{
+    font-size: 15px;
+  
 }

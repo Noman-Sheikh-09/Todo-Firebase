@@ -10,41 +10,39 @@ import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import DehazeIcon from '@mui/icons-material/Dehaze';
 export default function Sidebar() {
-  return <Box className="sidebar-wrapper">
-     <DehazeIcon className="-sidebar-dehaze" />
+  return <Box  className="sidebar-wrapper">
    <List className="list-wrapper">
      <ListItem>
-       <ListItemButton component="a" href="/">
+       <ListItemButton component="a" href="/myday">
 <LightModeOutlinedIcon />
-<ListItemText primary='My Day' />
+<ListItemText primary='My Day' className="sidebar-text"/>
        </ListItemButton>
      </ListItem>
      <ListItem>
        <ListItemButton component="a" href="/important">
 <StarBorderOutlinedIcon/>
-<ListItemText primary='Important' />
+<ListItemText primary='Important' className="sidebar-text"/>
        </ListItemButton>
      </ListItem>
      <ListItem>
        <ListItemButton component="a" href="/planning">
 <CalendarMonthOutlinedIcon />
-<ListItemText primary='Planning' />
+<ListItemText primary='Planning' className="sidebar-text" />
        </ListItemButton>
      </ListItem>
      <ListItem>
        <ListItemButton component="a">
 <PersonOutlineRoundedIcon />
-<ListItemText primary='Assigned to me' />
+<ListItemText primary='Assigned to me' className="sidebar-text" />
        </ListItemButton>
      </ListItem>
      <ListItem>
        <ListItemButton component="a" href="/tasks">
 <HomeOutlinedIcon />
-<ListItemText primary='Tasks' />
+<ListItemText primary='Tasks' className="sidebar-text"/>
        </ListItemButton>
      </ListItem>
    </List>
-  </Box>;
+   </Box>;
 }
