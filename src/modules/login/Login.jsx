@@ -10,8 +10,10 @@ import LockIcon from "@mui/icons-material/Lock";
 import React from "react";
 import "./LoginStyle.css";
 import GoogleIcon from '@mui/icons-material/Google';
-
+import UseLogin from "./UseLogin";
 export default function Login() {
+  const {email, password, setEmail, setPassword } = UseLogin();
+  console.log();
   return (
     <>
       <Grid>
@@ -29,6 +31,8 @@ export default function Login() {
               label="username"
               placeholder="Enter Username"
               required
+              value={email}
+              onChange={(e)=>setEmail(e.target.value)}
               className="feild"
             />
             <TextField
@@ -36,6 +40,8 @@ export default function Login() {
               placeholder="Enter Password"
               required
               className="password-feild"
+              value={password}
+              onChange={(e)=>setPassword(e.target.value)}
             />
             <Button variant="contained" className="signin-btn">
               Sign In

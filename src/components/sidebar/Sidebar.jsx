@@ -10,8 +10,10 @@ import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import DehazeIcon from "@mui/icons-material/Dehaze";
 export default function Sidebar() {
   return <Box  className="sidebar-wrapper">
+<DehazeIcon />
    <List className="list-wrapper">
      <ListItem>
        <ListItemButton component="a" href="/myday">
