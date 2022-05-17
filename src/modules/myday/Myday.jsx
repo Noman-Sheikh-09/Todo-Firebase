@@ -8,12 +8,9 @@ import {
   Paper,
   Button,
 } from "@mui/material";
-import { Box } from "@mui/system";
 import React from "react";
-import Avatar from "../../components/avatar/AvatarProfile";
 import Sidebar from "../../components/sidebar/Sidebar";
 import DehazeIcon from "@mui/icons-material/Dehaze";
-
 import Input from "../../components/input/Input";
 export default function Myday() {
   return (
