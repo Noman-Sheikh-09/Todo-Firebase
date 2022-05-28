@@ -7,12 +7,27 @@ import {
   TextField,
   Paper,
   Button,
+  InputBase,
+  Box,
 } from "@mui/material";
 import React from "react";
+import { useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import DehazeIcon from "@mui/icons-material/Dehaze";
-import Input from "../../components/input/Input";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import EventRepeatIcon from "@mui/icons-material/EventRepeat";
+import "./MydayStyle.css";
+
 export default function Myday() {
+  const [showSidebar, setShowSidebar] = useState(true);
+
+  const [addTast, setAddTask] = useState("");
+
+  const InputHandler = () => {};
+
+  const onSubmitHandler = () => {};
+
   return (
     <div className="full">
       <Grid container>
@@ -26,12 +41,29 @@ export default function Myday() {
           </Typography>
           <Grid item xs={12} sm={12}>
             <div>
-              <Input />
+              <Paper className="input-bg">
+                <InputBase
+                  placeholder="Add Task Here"
+                  onChange={InputHandler}
+                  className="input-feild"
+                />
+                <Box className="task-icons">
+                  <div className="three-icons">
+                    <CalendarMonthIcon className="three-icons" />
+                    <NotificationsNoneIcon className="three-icons" />
+                    <EventRepeatIcon className="three-icons" />
+                  </div>
+                  <Button
+                    variant="text"
+                    color="primary"
+                    onClick={onSubmitHandler}
+                  >
+                    Add
+                  </Button>
+                </Box>
+              </Paper>
             </div>
           </Grid>
-          {/* <Paper elevation={10} >
-          <TextField placeholder="Add" value={addTask} onChange={(e)=>setAddTask(e.target.value)}/>
-          </Paper> */}
         </Grid>
       </Grid>
     </div>

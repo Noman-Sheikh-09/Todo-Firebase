@@ -12,7 +12,7 @@ import "./LoginStyle.css";
 import GoogleIcon from '@mui/icons-material/Google';
 import UseLogin from "./UseLogin";
 export default function Login() {
-  const {email, password, setEmail, setPassword } = UseLogin();
+  const {email, password, setEmail, setPassword,loginHander } = UseLogin();
   console.log();
   return (
     <>
@@ -43,7 +43,7 @@ export default function Login() {
               value={password}
               onChange={(e)=>setPassword(e.target.value)}
             />
-            <Button variant="contained" className="signin-btn">
+            <Button variant="contained" className="signin-btn" onClick={loginHander}> 
               Sign In
             </Button>
           </Grid>
