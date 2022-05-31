@@ -1,9 +1,11 @@
 
 import {combineReducers} from 'redux'
-import AddReducer from './taskReducer/TaskReducer';
-
+import { AuthReducer } from './authReducer/AuthReducer';
+import { TaskReducer } from './taskReducer/TaskReducer';
 const RootReducer = combineReducers({
-    AddReducer,
+    AuthReducer,
+    TaskReducer,
+    
 })
 
 export default RootReducer; 

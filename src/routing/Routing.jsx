@@ -10,7 +10,7 @@ import Login from "../modules/login/Login";
 import PrivateRouting from "./PrivateRouting";
 import { useSelector } from "react-redux";
 export default function Routing() {
-  // const isUserLoggedIn = useSelector((state) => state.AuthReducer.isUserLoggedIn  );
+  const isUserLoggedIn = useSelector((state) => state.AuthReducer.isUserLoggedIn  );
   return (
     <div>
       <Router>
@@ -22,7 +22,7 @@ export default function Routing() {
           <Route
             path="/"
             element={
-              <PrivateRouting  >
+              <PrivateRouting isUserLoggedIn={isUserLoggedIn} >
                 <Myday />
               </PrivateRouting>
             }
@@ -30,7 +30,7 @@ export default function Routing() {
           <Route
             path="/important"
             element={
-              <PrivateRouting >
+              <PrivateRouting isUserLoggedIn={isUserLoggedIn} >
                 <Important />
               </PrivateRouting>
             }
@@ -38,7 +38,7 @@ export default function Routing() {
           <Route
             path="/planning"
             element={
-              <PrivateRouting >
+              <PrivateRouting isUserLoggedIn={isUserLoggedIn} >
                 <Planning />
               </PrivateRouting>
             }
@@ -46,7 +46,7 @@ export default function Routing() {
           <Route
             path="/tasks"
             element={
-              <PrivateRouting >
+              <PrivateRouting isUserLoggedIn={isUserLoggedIn}>
                 <Tasks />
               </PrivateRouting>
             }

@@ -11,7 +11,10 @@ import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import DehazeIcon from "@mui/icons-material/Dehaze";
+import { Button } from "@mui/material";
+import UseSidebar from "./UseSidebar";
 export default function Sidebar() {
+  const {logoutHandler} = UseSidebar();
   return <Box  className="sidebar-wrapper">
 <DehazeIcon />
    <List className="list-wrapper">
@@ -44,6 +47,9 @@ export default function Sidebar() {
 <HomeOutlinedIcon />
 <ListItemText primary='Tasks' className="sidebar-text"/>
        </ListItemButton>
+       <Button variant="outlined" onClick={logoutHandler} >
+         Logout
+       </Button>
      </ListItem>
    </List>
    </Box>;

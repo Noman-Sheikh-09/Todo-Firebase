@@ -4,10 +4,10 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import { doLogin } from "../../store/actions/authAction/AuthAction";
 export default function UseLogin() {
-  const navigate =useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // console.log(email,password);
+  const navigate =useNavigate();
   const dispatch = useDispatch();
   const loginHander = () => {
     let userData = {

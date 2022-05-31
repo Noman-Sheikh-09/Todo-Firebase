@@ -18,15 +18,12 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import EventRepeatIcon from "@mui/icons-material/EventRepeat";
 import "./MydayStyle.css";
-
+import UseMyday from "./UseMyday";
+import TaskList from "../../components/taskList/TaskList";
+ 
 export default function Myday() {
   const [showSidebar, setShowSidebar] = useState(true);
-
-  const [addTast, setAddTask] = useState("");
-
-  const InputHandler = () => {};
-
-  const onSubmitHandler = () => {};
+  const {task, setAddTask,onSubmitHandler}= UseMyday("");
 
   return (
     <div className="full">
@@ -44,8 +41,9 @@ export default function Myday() {
               <Paper className="input-bg">
                 <InputBase
                   placeholder="Add Task Here"
-                  onChange={InputHandler}
                   className="input-feild"
+                  value={task}
+                  onChange={(e)=>setAddTask(e.target.value)}
                 />
                 <Box className="task-icons">
                   <div className="three-icons">
@@ -62,7 +60,11 @@ export default function Myday() {
                   </Button>
                 </Box>
               </Paper>
+      <TaskList />
+
             </div>
+            <br />
+           
           </Grid>
         </Grid>
       </Grid>

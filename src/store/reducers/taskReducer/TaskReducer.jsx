@@ -1,13 +1,27 @@
-import * as types from '../../actions/ActionTypes'
+import {FETCH_TASK,DELETE_TASK, UPDATE_TASK,ADD_TASK, GET_ALL_TASK } from '../../actions/ActionTypes'
 
-const intialState = {
-    task:[],
-    tasks:{}
+const initialState = {
+    tasks : []
 }
-const AddReducer = (state = intialState, action)=>{
-switch(action.type){
-default:
-    return state;
+
+export const TaskReducer=(state=initialState, action)=>{
+switch (action.type) {
+    case FETCH_TASK:
+        // console.log("reducer data", action.payload);
+        return{
+            ...state,
+            tasks: action.payload
+        }
+
+        case ADD_TASK:
+          const  newTask = [...state.tasks, action.payload]
+            console.log("reducer data", action.payload);
+            return{
+                ...state,
+                tasks: newTask
+            }
+
+    default:
+      return state
 }
 }
-export default AddReducer;

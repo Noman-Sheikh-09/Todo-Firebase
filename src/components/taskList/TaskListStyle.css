@@ -1,0 +1,17 @@
+.task-icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+    .three-icons{
+    color: grey;
+    margin-right: 10px;
+    cursor: pointer;
+    }
+    .three-icons:hover{
+        color: black;
+    }
+    .full{
+        background-color: white;
+    }
+    

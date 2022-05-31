@@ -18,3 +18,15 @@ import {auth} from '../../../config/Firebase'
     
     }
   };
+// Logout
+  export const doLogout = (userData, navigate) => async (dispatch) => {
+    try {
+      const res = auth.signOut()
+      dispatch({
+        type: LOGOUT,
+      });
+    } catch (error) {
+      console.log(error);
+    
+    }
+  };
