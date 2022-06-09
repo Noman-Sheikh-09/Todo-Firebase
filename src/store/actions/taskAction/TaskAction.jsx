@@ -25,9 +25,40 @@ export const addTask = (data) => async (dispatch) => {
     dispatch({
       type: ADD_TASK,
       payload: data,
-      
+
     });
   } catch (error) {
     alert(error.message);
   }
 };
+
+// Delete 
+
+export const deleteTask = (docID) => async (dispatch) => {
+  try {
+    await db.collection("Tasks").doc(docID).delete();
+  
+    dispatch({
+      type: DELETE_TASK,
+      payload: docID,
+      
+    });
+  } catch (error) {
+    alert(error.message);
+  }
+}
+
+export const updateTask = (id, userTask ) => async (dispatch) =>{
+
+
+  try {
+    const updatedTask = await db.collection("Tasks").doc(id).update(userTask)
+    dispatch({
+      type : UPDATE_TASK,
+      // payload : data
+      payload : {data:userTask, docID:id }
+    })
+  } catch (error) {
+  console.log(error);
+  }
+}

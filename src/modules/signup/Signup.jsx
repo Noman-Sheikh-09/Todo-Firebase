@@ -1,7 +1,11 @@
 import { Button, Grid, Paper, TextField, Typography } from "@mui/material";
 import React from "react";
 import "./SignupStyle.css";
-export default function Singup() {
+import UseSignup from "./UseSignup";
+
+export default function Signup() {
+  const [ fname,setFirstName,lname,setLastName,email,setEmail, password,setPassword, signupHandler,] = UseSignup();
+  // console.log(name, email, father, password);
   return (
     <>
       <Grid>
@@ -12,41 +16,41 @@ export default function Singup() {
             </Typography>
             <Grid display={"flex"} className="signup-input">
               <TextField
-                label="First Name"
-                placeholder="Enter First Name"
-                required
+                label="Your Name"
+                placeholder="Enter Your Name"
+                value={fname}
+                onChange={(e) => setFirstName(e.target.value)}
               />
               <TextField
-                label="Last Name"
-                placeholder="Enter Last Name"
-                required
+                label="Father Name"
+                placeholder="Enter Father Name"
+                value={lname}
+                onChange={(e) => setLastName(e.target.value)}
               />
             </Grid>
+
             <Grid className="signup-input">
               <TextField
                 label="Email"
                 placeholder="Enter Email Address"
-                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
-              <TextField
-                label="Date of Birth"
-                placeholder="Enter Date of Birth "
-                required
-              />
-            </Grid>
-            <Grid className="signup-input">
+
               <TextField
                 label="Password"
                 placeholder="Enter Password"
-                required
-              />
-              <TextField
-                label="Confirm password"
-                placeholder="Enter Confirm password "
-                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Grid>
-            <Button variant="outlined" color="primary" className="signup-btn" component="a" href="/myday">
+
+            <Button
+              variant="outlined"
+              color="primary"
+              className="signup-btn"
+              onClick={signupHandler}
+            >
               Create Account
             </Button>
           </Grid>

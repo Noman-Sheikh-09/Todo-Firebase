@@ -1,8 +1,14 @@
-import Navbar from "./components/navbar/Navbar";
-import Login from "./modules/login/Login";
-import Signup from "./modules/signup/Signup";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import Routing from "./routing/Routing";
+import { doGetActiveUser } from "./store/actions/authAction/AuthAction";
 function App() {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(doGetActiveUser());
+  }, []);
+
   return (
     <div className="App">
       <Routing />

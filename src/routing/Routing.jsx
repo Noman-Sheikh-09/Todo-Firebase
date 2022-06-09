@@ -5,18 +5,23 @@ import Important from "../modules/important/Important";
 import Planning from "../modules/planning/Planning";
 import Tasks from "../modules/tasks/Tasks";
 import Navbar from "../components/navbar/Navbar";
-import Signup from "../modules/signup/Signup";
 import Login from "../modules/login/Login";
 import PrivateRouting from "./PrivateRouting";
+import PublicRouting from "./PublicRouting";
 import { useSelector } from "react-redux";
+import Signup from "../modules/signup/Signup";
 export default function Routing() {
   const isUserLoggedIn = useSelector((state) => state.AuthReducer.isUserLoggedIn  );
   return (
     <div>
       <Router>
-        <Navbar />
+        <Navbar />  
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={
+          <PublicRouting isUserLoggedIn={isUserLoggedIn}>
+   <Login />
+          </PublicRouting>
+       } />
           <Route path="/signup" element={<Signup />} />
 
           <Route
@@ -30,28 +35,29 @@ export default function Routing() {
           <Route
             path="/important"
             element={
-              <PrivateRouting isUserLoggedIn={isUserLoggedIn} >
+              // <PrivateRouting isUserLoggedIn={isUserLoggedIn} >
                 <Important />
-              </PrivateRouting>
+              // </PrivateRouting>
             }
           />
           <Route
             path="/planning"
             element={
-              <PrivateRouting isUserLoggedIn={isUserLoggedIn} >
+              // <PrivateRouting isUserLoggedIn={isUserLoggedIn} >
                 <Planning />
-              </PrivateRouting>
+              // </PrivateRouting>
             }
           />
           <Route
             path="/tasks"
             element={
-              <PrivateRouting isUserLoggedIn={isUserLoggedIn}>
+              // <PrivateRouting isUserLoggedIn={isUserLoggedIn}>
                 <Tasks />
-              </PrivateRouting>
+              // </PrivateRouting>
             }
           />
         </Routes>
+ 
       </Router>
     </div>
   );

@@ -1,10 +1,6 @@
 import {
   Grid,
   Typography,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  TextField,
   Paper,
   Button,
   InputBase,
@@ -22,8 +18,13 @@ import UseMyday from "./UseMyday";
 import TaskList from "../../components/taskList/TaskList";
  
 export default function Myday() {
-  const [showSidebar, setShowSidebar] = useState(true);
-  const {task, setAddTask,onSubmitHandler}= UseMyday("");
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [task, setAddTask,onSubmitHandler ,tasks,
+    ctaDeleteHandler,
+    ctaUpdateHandler,
+    onClickUpdateHandler,
+  flag,
+setFlag]= UseMyday("");
 
   return (
     <div className="full">
@@ -51,16 +52,25 @@ export default function Myday() {
                     <NotificationsNoneIcon className="three-icons" />
                     <EventRepeatIcon className="three-icons" />
                   </div>
-                  <Button
+                  {
+                    !flag ? <Button
                     variant="text"
                     color="primary"
                     onClick={onSubmitHandler}
                   >
                     Add
-                  </Button>
+                  </Button> :
+                  <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={onClickUpdateHandler}
+                >
+                Update
+                </Button>
+                  }
                 </Box>
               </Paper>
-      <TaskList />
+      <TaskList tasks={tasks}  ctaDeleteHandler={ctaDeleteHandler} ctaUpdateHandler={ctaUpdateHandler} />
 
             </div>
             <br />

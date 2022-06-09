@@ -6,9 +6,7 @@ export default function AppLauncher({launchOpen}) {
     <>
         <Paper elevation={5} className="app-launcher-wrapper">
  <AppsIcon onClick={()=>launchOpen(false)} />
- <h1>
-     This is App launcher
- </h1>
+
         </Paper>
     </>
   )

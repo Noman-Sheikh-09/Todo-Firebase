@@ -19,7 +19,7 @@ export default function Sidebar() {
 <DehazeIcon />
    <List className="list-wrapper">
      <ListItem>
-       <ListItemButton component="a" href="/myday">
+       <ListItemButton component="a" href="/">
 <LightModeOutlinedIcon />
 <ListItemText primary='My Day' className="sidebar-text"/>
        </ListItemButton>
@@ -37,7 +37,7 @@ export default function Sidebar() {
        </ListItemButton>
      </ListItem>
      <ListItem>
-       <ListItemButton component="a">
+       <ListItemButton component="a" href="/assigned">
 <PersonOutlineRoundedIcon />
 <ListItemText primary='Assigned to me' className="sidebar-text" />
        </ListItemButton>
