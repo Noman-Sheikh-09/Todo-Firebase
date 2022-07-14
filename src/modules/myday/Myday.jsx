@@ -40,12 +40,15 @@ setFlag]= UseMyday("");
           <Grid item xs={12} sm={12}>
             <div>
               <Paper className="input-bg">
+                <div>
+
                 <InputBase
                   placeholder="Add Task Here"
                   className="input-feild"
                   value={task}
                   onChange={(e)=>setAddTask(e.target.value)}
                 />
+                </div>
                 <Box className="task-icons">
                   <div className="three-icons">
                     <CalendarMonthIcon className="three-icons" />

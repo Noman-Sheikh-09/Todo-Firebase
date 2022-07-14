@@ -1,6 +1,6 @@
  import {LOGIN, LOGOUT, SIGNUP, GET_USER_ON_AUTH_STATE_CHANGE} from '../../types/Types'
 import {auth, db} from '../../../config/Firebase'
-
+import { toast } from 'react-toastify';
 
  export const doLogin = (userData, navigate) => async (dispatch) => {
     try {
@@ -15,8 +15,10 @@ import {auth, db} from '../../../config/Firebase'
         payload: user,
       });
       navigate("/");
+      toast.success("Successfully Logged In")
     } catch (error) {
-      console.log(error);
+   
+      toast.error("something went wrong!")
     
     }
   };
@@ -34,7 +36,7 @@ import {auth, db} from '../../../config/Firebase'
   };
 
 
-  export const doSignup = (newUser) => async (dispatch) => {
+  export const doSignup = (newUser,navigate) => async (dispatch) => {
     console.log("signup data in action", newUser);
     try {
       const userCredential = await auth.createUserWithEmailAndPassword(
@@ -50,7 +52,7 @@ import {auth, db} from '../../../config/Firebase'
         type: SIGNUP,
         payload: userData,
       });
-      // navigate("/");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }

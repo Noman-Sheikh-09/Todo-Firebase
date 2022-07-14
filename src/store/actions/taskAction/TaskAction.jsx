@@ -1,5 +1,6 @@
 import { db } from "../../../config/Firebase";
 import { FETCH_TASK, DELETE_TASK, UPDATE_TASK, ADD_TASK } from "../ActionTypes";
+import {toast} from 'react-toastify';
 
 export const fetchTask = () => async (dispatch) => {
   try {
@@ -12,9 +13,11 @@ export const fetchTask = () => async (dispatch) => {
     dispatch({
       type: FETCH_TASK,
       payload: tasks,
+      
     });
   } catch (error) {
-    alert(error.message);
+    console.log("error", error);
+    toast.error(error)
   }
 };
 // Add 
@@ -27,8 +30,11 @@ export const addTask = (data) => async (dispatch) => {
       payload: data,
 
     });
+    toast.success("Task Added!")
+
   } catch (error) {
-    alert(error.message);
+    toast.error(error)
+
   }
 };
 
@@ -43,8 +49,10 @@ export const deleteTask = (docID) => async (dispatch) => {
       payload: docID,
       
     });
+    toast.success("Task Deleted!")
+
   } catch (error) {
-    alert(error.message);
+    toast.error(error)
   }
 }
 
@@ -58,7 +66,10 @@ export const updateTask = (id, userTask ) => async (dispatch) =>{
       // payload : data
       payload : {data:userTask, docID:id }
     })
+    toast.success("Task Updated!")
+
   } catch (error) {
-  console.log(error);
+
+  toast.error(error)
   }
 }

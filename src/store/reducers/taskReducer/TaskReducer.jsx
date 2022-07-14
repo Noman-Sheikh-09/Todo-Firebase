@@ -4,7 +4,6 @@ import {
   UPDATE_TASK,
   ADD_TASK,
 } from "../../actions/ActionTypes";
-
 const initialState = {
   tasks: [],
 };
